@@ -1,7 +1,27 @@
 <html lang="en">
 <head>
-<title>Nintendo Switch Firmware 12.1.0</title>
+<title>Nintendo Switch Firmware</title>
 <meta charset="utf-8">
-<meta http-equiv = "refresh" content = "0; url = https://archive.org/download/nintendo-switch-global-firmwares/Firmware%2012.1.0.zip" />
+<meta id= "url" http-equiv = "refresh" />
+<script>
+	function getJSON(url) {
+        var resp ;
+        var xmlHttp ;
+
+        resp  = '' ;
+        xmlHttp = new XMLHttpRequest();
+
+        if(xmlHttp != null) {
+            xmlHttp.open( "GET", url, false );
+            xmlHttp.send( null );
+            resp = xmlHttp.responseText;
+        }
+
+        return resp ;
+    }
+	var json = getJSON('https://hide-techno-tips.github.io/Nintendo-Switch-Files/index.json');
+	const url = JSON.parse(json).firmware.url;
+  document.getElementById('url').setAttribute('content', '0;' + " url = " + url);
+</script>
 </head>
 </html>
